@@ -51,3 +51,38 @@ echo -n yintrust | md5sum | cut -d ' ' -f 1
 ```
 
 示例输出：`a6ade2856ca8717c1643aead34c96088`
+
+## 统计最常用的 20 个命令
+
+下述命令引用自 Oh My Zsh 的 [`zsh_stats`](https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/functions.zsh#L1-L3) 命令
+
+```shell
+fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+```
+
+示例输出：
+
+```text
+     1	1466  14.5437%     ls
+     2	1425  14.1369%     git
+     3	1081  10.7242%     docker-compose
+     4	960   9.52381%     cd
+     5	811   8.04563%     sudo
+     6	283   2.80754%     rm
+     7	266   2.63889%     ssh
+     8	211   2.09325%     cat
+     9	188   1.86508%     docker
+    10	180   1.78571%     mv
+    11	170   1.68651%     subl
+    12	170   1.68651%     python3
+    13	160   1.5873%      curl
+    14	122   1.21032%     touch
+    15	108   1.07143%     history
+    16	101   1.00198%     proxychains4
+    17	101   1.00198%     mkdir
+    18	92    0.912698%    pip
+    19	76    0.753968%    pip3
+    20	73    0.724206%    vagrant
+
+```
+
