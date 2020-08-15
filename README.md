@@ -4,7 +4,7 @@
 
 若要将一个数千行的 JSON Lines 文件（`new_labeling_tasks.jl`）分割为 1000 行的子文件，可使用如下命令：
 
-```shell script
+```shell
 split -l 1000 -d --additional-suffix=.jl new_labeling_tasks.jl new_labeling_tasks_
 ```
 
@@ -12,7 +12,7 @@ split -l 1000 -d --additional-suffix=.jl new_labeling_tasks.jl new_labeling_task
 
 ## 统计文件行数
 
-```shell script
+```shell
 wc -l new_labeling_tasks.jl
 ```
 
@@ -20,7 +20,7 @@ wc -l new_labeling_tasks.jl
 
 ## 生成随机字符串
 
-```shell script
+```shell
 tr -dc a-zA-Z0-9 < /dev/urandom | head -c 50
 ```
 
@@ -30,7 +30,7 @@ tr -dc a-zA-Z0-9 < /dev/urandom | head -c 50
 
 编码：
 
-```shell script
+```shell
 echo yintrust | base64
 ```
 
@@ -38,7 +38,7 @@ echo yintrust | base64
 
 解码：
 
-```shell script
+```shell
 echo eWludHJ1c3QK | base64 -d
 ```
 
@@ -46,7 +46,7 @@ echo eWludHJ1c3QK | base64 -d
 
 ## md5 哈希
 
-```shell script
+```shell
 echo -n yintrust | md5sum | cut -d ' ' -f 1
 ```
 
