@@ -10,6 +10,16 @@ split -l 1000 -d --additional-suffix=.jl new_labeling_tasks.jl new_labeling_task
 
 这将会生成 `new_labeling_tasks_00.jl`、`new_labeling_tasks_01.jl`、... 、等。
 
+## 合并文件
+
+若要将两个文件合并成一个文件，可使用如下命令：
+
+```shell
+cat a.txt b.txt > all.txt
+```
+
+这将会生成 `all.txt` 文件。
+
 ## 统计文件行数
 
 ```shell
