@@ -96,3 +96,9 @@ fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/c
 
 ```
 
+## 使用 `ffmpeg` 将多个 `.ts` 文件合并为单个 mp4 文件
+
+```shell
+cat segment_1.ts segment_2.ts segment_3.ts > all.txt
+ffmpeg -f concat -safe 0 -i all.txt -c copy all.mp4
+```
