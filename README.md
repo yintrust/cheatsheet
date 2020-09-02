@@ -1,5 +1,7 @@
 # Cheatsheet
 
+- [Hotkey](hotkey.md)
+
 ## 分割文件
 
 若要将一个数千行的 JSON Lines 文件（`new_labeling_tasks.jl`）分割为 1000 行的子文件，可使用如下命令：
