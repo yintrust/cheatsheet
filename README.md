@@ -56,13 +56,18 @@ echo eWludHJ1c3QK | base64 -d
 
 示例输出：`yintrust`
 
-## md5 哈希
+## md5/sha1 哈希
 
 ```shell
 echo -n yintrust | md5sum | cut -d ' ' -f 1
+# or
+echo -n yintrust | sha1sum | cut -d ' ' -f 1
 ```
 
-示例输出：`a6ade2856ca8717c1643aead34c96088`
+示例输出：
+
+- `a6ade2856ca8717c1643aead34c96088`
+- `73171da61cd9f77537128cf38c84ecf7eda3d95d`
 
 ## 统计最常用的 20 个命令
 
