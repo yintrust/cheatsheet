@@ -67,6 +67,12 @@ echo -n yintrust | sha1sum | cut -d ' ' -f 1
 - `a6ade2856ca8717c1643aead34c96088`
 - `73171da61cd9f77537128cf38c84ecf7eda3d95d`
 
+## 查看目录大小
+
+```shell
+sudo du -h --max-depth=1 /home/yintrust
+```
+
 ## 统计最常用的 20 个命令
 
 下述命令引用自 Oh My Zsh 的 [`zsh_stats`](https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/functions.zsh#L1-L3) 命令
