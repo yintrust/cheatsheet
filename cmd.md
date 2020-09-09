@@ -73,6 +73,22 @@ echo -n yintrust | sha1sum | cut -d ' ' -f 1
 sudo du -h --max-depth=1 /home/yintrust
 ```
 
+## SSH 远程端口转发
+
+将本机的 `22` 端口转发到远程服务器的 `2222` 端口上：
+
+```shell
+ssh -CfNg -R -X 2222:127.0.0.1:22 root@121.121.121.121
+```
+
+## 使用 `rsync` 传输目录
+
+使用 `~/private.pem` 私钥将本机的 `~/yintrust/` 目录传输到远程服务器上的 `~/` 目录下
+
+```shell
+rsync -azr --progress -e "ssh -i ~/private.pem" ~/yintrust/ ubuntu@121.121.121.121:~/
+```
+
 ## 统计最常用的 20 个命令
 
 下述命令引用自 Oh My Zsh 的 [`zsh_stats`](https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/functions.zsh#L1-L3) 命令
