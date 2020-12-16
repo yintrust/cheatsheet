@@ -1,5 +1,21 @@
 # 命令行
 
+## 批量修改文件后缀名
+
+若要将当前目录下所有以 `.text` 结尾的文件修改为以 `.txt` 结尾的文件，可使用如下命令：
+
+```shell
+rename "s/\.text$/.txt/" *.text
+```
+
+## 统计文件行数
+
+```shell
+wc -l new_labeling_tasks.jl
+```
+
+示例输出：`9096 new_labeling_tasks.jl`
+
 ## 分割文件
 
 若要将一个数千行的 JSON Lines 文件（`new_labeling_tasks.jl`）分割为 1000 行的子文件，可使用如下命令：
@@ -19,14 +35,6 @@ cat a.txt b.txt > all.txt
 ```
 
 这将会生成 `all.txt` 文件。
-
-## 统计文件行数
-
-```shell
-wc -l new_labeling_tasks.jl
-```
-
-示例输出：`9096 new_labeling_tasks.jl`
 
 ## 生成随机字符串
 
