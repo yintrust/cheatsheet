@@ -4,13 +4,13 @@
 
 若要将当前目录下所有以 `.text` 结尾的文件修改为以 `.txt` 结尾的文件，可使用如下命令：
 
-```shell
+```sh
 rename "s/\.text$/.txt/" *.text
 ```
 
 ## 统计文件行数
 
-```shell
+```sh
 wc -l new_labeling_tasks.jl
 ```
 
@@ -20,7 +20,7 @@ wc -l new_labeling_tasks.jl
 
 若要将一个数千行的 JSON Lines 文件（`new_labeling_tasks.jl`）分割为 1000 行的子文件，可使用如下命令：
 
-```shell
+```sh
 split -l 1000 -d --additional-suffix=.jl new_labeling_tasks.jl new_labeling_tasks_
 ```
 
@@ -30,15 +30,25 @@ split -l 1000 -d --additional-suffix=.jl new_labeling_tasks.jl new_labeling_task
 
 若要将两个文件合并成一个文件，可使用如下命令：
 
-```shell
+```sh
 cat a.txt b.txt > all.txt
 ```
 
 这将会生成 `all.txt` 文件。
 
+## 生成 UUID
+
+```sh
+uuidgen
+# 或
+cat /proc/sys/kernel/random/uuid
+```
+
+示例输出：`d414e120-456a-42f3-b5ca-e3b99d750c78`
+
 ## 生成随机字符串
 
-```shell
+```sh
 tr -dc a-zA-Z0-9 < /dev/urandom | head -c 50
 ```
 
@@ -48,7 +58,7 @@ tr -dc a-zA-Z0-9 < /dev/urandom | head -c 50
 
 编码：
 
-```shell
+```sh
 echo yintrust | base64
 ```
 
@@ -56,7 +66,7 @@ echo yintrust | base64
 
 解码：
 
-```shell
+```sh
 echo eWludHJ1c3QK | base64 -d
 ```
 
@@ -64,7 +74,7 @@ echo eWludHJ1c3QK | base64 -d
 
 ## md5/sha1 哈希
 
-```shell
+```sh
 echo -n yintrust | md5sum | cut -d ' ' -f 1
 # or
 echo -n yintrust | sha1sum | cut -d ' ' -f 1
@@ -77,7 +87,7 @@ echo -n yintrust | sha1sum | cut -d ' ' -f 1
 
 ## 查看目录大小
 
-```shell
+```sh
 sudo du -h --max-depth=1 /home/yintrust
 ```
 
@@ -85,13 +95,13 @@ sudo du -h --max-depth=1 /home/yintrust
 
 将 A 电脑的 `22` 端口转发到远程服务器的 `2222` 端口上：
 
-```shell
+```sh
 ssh -CfNg -R -X 2222:127.0.0.1:22 root@121.121.121.121
 ```
 
 在 B 电脑上连接远程服务器的 `2222` 端口以达到连接 A 电脑的 `22` 端口的效果（假设 A 电脑的登录用户为 `yintrust`）：
 
-```shell
+```sh
 ssh -p 2222 yintrust@121.121.121.121
 ```
 
@@ -99,7 +109,7 @@ ssh -p 2222 yintrust@121.121.121.121
 
 使用 `~/private.pem` 私钥将本机的 `~/yintrust/` 目录传输到远程服务器上的 `~/` 目录下
 
-```shell
+```sh
 rsync -azr --progress -e "ssh -i ~/private.pem" ~/yintrust/ ubuntu@121.121.121.121:~/
 ```
 
@@ -107,7 +117,7 @@ rsync -azr --progress -e "ssh -i ~/private.pem" ~/yintrust/ ubuntu@121.121.121.1
 
 下述命令引用自 Oh My Zsh 的 [`zsh_stats`](https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/functions.zsh#L1-L3) 命令
 
-```shell
+```sh
 fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 ```
 
@@ -139,7 +149,7 @@ fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/c
 
 ## 使用 `ffmpeg` 将多个 `.ts` 文件合并为单个 mp4 文件
 
-```shell
+```sh
 cat segment_1.ts segment_2.ts segment_3.ts > all.txt
 ffmpeg -f concat -safe 0 -i all.txt -c copy all.mp4
 ```
