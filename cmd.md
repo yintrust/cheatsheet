@@ -74,10 +74,20 @@ echo eWludHJ1c3QK | base64 -d
 
 ## md5/sha1 哈希
 
+Linux:
+
 ```sh
 echo -n yintrust | md5sum | cut -d ' ' -f 1
 # or
 echo -n yintrust | sha1sum | cut -d ' ' -f 1
+```
+
+macOS:
+
+```sh
+md5 -s yintrust
+# or
+echo -n yintrust | shasum | cut -d ' ' -f 1
 ```
 
 示例输出：
@@ -87,9 +97,19 @@ echo -n yintrust | sha1sum | cut -d ' ' -f 1
 
 ## 查看目录大小
 
+Linux:
+
 ```sh
 sudo du -h --max-depth=1 /home/yintrust
 ```
+
+macOS:
+
+```sh
+sudo du -h -d=1 /home/yintrust
+```
+
+或使用 [ncdu](https://dev.yorhel.nl/ncdu)
 
 ## SSH 远程端口转发
 
