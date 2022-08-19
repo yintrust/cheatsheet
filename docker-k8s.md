@@ -1,5 +1,41 @@
 # Docker 与 K8s
 
+## 获取 Docker Registry 上的所有 image
+
+```sh
+curl https://<ip>:<port>/v2/_catalog | python3 -m json.tool
+```
+
+示例输出：
+
+```sh
+{
+    "repositories": [
+        "yintrust-web",
+        ...
+    ]
+}
+```
+
+## 获取 Docker Registry 上指定的 image 的所有 tag
+
+```sh
+curl https://<ip>:<port>/v2/yintrust-web/tags/list | python3 -m json.tool
+```
+
+示例输出：
+
+```sh
+{
+    "name": "yintrust-web",
+    "tags": [
+        "201907122041",
+        "201906071308",
+        ...
+    ]
+}
+```
+
 ## 批量删除驱逐（Evicted）的 Pod
 
 ```sh
