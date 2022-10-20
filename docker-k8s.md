@@ -1,5 +1,17 @@
 # Docker 与 K8s
 
+## 导出 Docker image
+
+```sh
+docker save myimage:latest | gzip > myimage_latest.tar.gz
+```
+
+## 导入 Docker image
+
+```sh
+docker load -i myimage_latest.tar.gz
+```
+
 ## 获取 Docker Registry 上的所有 image
 
 ```sh
