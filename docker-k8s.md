@@ -65,3 +65,9 @@ kubectl get pod -n test | grep Evicted | awk '{print $1}' | xargs kubectl delete
    ```sh
    rm -rf /var/lib/kubelet/pods/0b0b9b99-6a28-11ec-a6aa-002278b0b72f
    ```
+
+## 在多个 Pod 中执行同一命令
+
+```sh
+kubectl get pod -n test -o name -l name=spider | xargs -I{} kubectl -n test --container spider exec {} -- ls -alh
+```
