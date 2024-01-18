@@ -100,7 +100,7 @@ echo -n yintrust | shasum | cut -d ' ' -f 1
 Linux:
 
 ```sh
-sudo du -h --max-depth=1 /home/yintrust
+sudo du -h --max-depth=1 /home/yintrust 2>/dev/null | sort -rh
 ```
 
 macOS:
